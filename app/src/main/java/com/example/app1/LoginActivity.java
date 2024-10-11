@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -31,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
             return insets;
         });
         loginButton.setOnClickListener(new View.OnClickListener(){
+            @Override
             public void onClick(View v) {
                 if(usernameInput.getText().toString().equals("admin") && passwordInput.getText().toString().equals("admin"))
                 {
@@ -43,6 +45,14 @@ public class LoginActivity extends AppCompatActivity {
                     toast.show();
                 }
 
+            }
+        });
+        TextView registerLink = findViewById(R.id.register_link);
+        registerLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), RegisterActivity.class);
+                v.getContext().startActivity(intent);
             }
         });
     }
